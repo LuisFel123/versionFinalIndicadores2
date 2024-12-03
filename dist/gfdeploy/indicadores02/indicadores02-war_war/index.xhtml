@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+
+    </h:head>
+    <h:body class="inicio">
+        <h1 style="text-align: center"> Aplicacion de indicadores de salud de personas </h1>
+
+        <f:view>
+            <p:growl id="messages"/>
+
+            <p:card style="width: 25rem; margin-bottom: 2em; margin-top: 1em; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+                <f:facet name="title">
+                    Login
+                </f:facet>
+                <p:avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" style="background-color:#2196F3; color:#fff" shape="circle" />
+
+
+                <h:form id="login" style="display: flex; justify-content: center; align-items: center;">
+                    <h:panelGrid columns="2">
+
+                        <p:outputLabel value="Usuario" for="usuario" />
+                        <p:inputText id="usuario" value="#{aPersona.perosna.usuario}" title="Usuario" required="true" requiredMessage="El usuario es requerido."/>
+
+                        <p:outputLabel value="Password:" for="password" />
+                        <p:password id="password" value="#{aPersona.perosna.password}" title="Password" required="true" requiredMessage="La contrasea es requerida."/>
+
+                        <p:commandButton styleClass="ui-button-success" value="Ingresar" actionListener="#{aPersona.autenticacion()}"  update=":login messages :medidasT" action="#{aMedida.limpiarMedida()}" resetValues="true"/>
+                        <p:commandButton style="margin-left: 6em" styleClass="ui-button-info" value="Registrate" action="registro_persona" process="@this" resetValues="true" actionListener="#{aMedida.limpiarMedida()}"/>
+
+
+                    </h:panelGrid>
+
+                </h:form>
+            </p:card>
+
+        </f:view>
+
+
+
+    </h:body>
+</html>
